@@ -34,11 +34,7 @@ public class Item {
             case "Sulfuras, Hand of Ragnaros":
                 new Sulfuras().updateQuality(this);
             case "Aged Brie":
-                decreaseSellIn();
-                safeIncreaseQuality();
-                if (sellIn < 0) {
-                    safeIncreaseQuality();
-                }
+                new AgedBrie().updateQuality(this);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
                 decreaseSellIn();
