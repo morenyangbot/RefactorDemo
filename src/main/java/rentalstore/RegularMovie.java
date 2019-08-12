@@ -10,4 +10,9 @@ public class RegularMovie implements MovieType {
         }
         return amount;
     }
+
+    @Override
+    public int getFrequentRenterPoints(int getDayRented) {
+        return 1;
+    }
 }

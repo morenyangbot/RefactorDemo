@@ -28,6 +28,10 @@ public class Movie {
         return movie.getAmount(dayRented);
     }
 
+    public int getFrequentRenterPoints(int dayRented){
+        return movie.getFrequentRenterPoints(dayRented);
+    }
+
     public int getPriceCode() {
         return priceCode;
     }
