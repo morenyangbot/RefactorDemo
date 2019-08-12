@@ -37,6 +37,7 @@ public class Item {
         switch (name) {
             case "Sulfuras, Hand of Ragnaros":
                 new Sulfuras().updateQuality(this);
+                break;
             case "Aged Brie":
                 new AgedBrie().updateQuality(this);
                 break;
@@ -44,16 +45,14 @@ public class Item {
                 new BackstagePass().updateQuality(this);
                 break;
             default:
-                decreaseSellIn();
-                if (quality > 0) {
-                    quality = quality - 1;
-                    if (sellIn < 0) {
-                        quality = quality - 1;
-                    }
-                }
+                new NormalSellItem().updateQuality(this);
                 break;
 
         }
+    }
+
+    public void decreaseQuality() {
+        quality = quality - 1;
     }
 
     public void decreaseSellIn() {
