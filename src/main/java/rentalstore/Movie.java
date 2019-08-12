@@ -6,12 +6,10 @@ public class Movie {
     public static final int NEW_RELEASE = 1;
 
     private String title;
-    private int priceCode;
     private MovieType movie;
 
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
         switch (priceCode) {
             case REGULAR:
                 this.movie = new RegularMovie();
@@ -30,14 +28,6 @@ public class Movie {
 
     public int getFrequentRenterPoints(int dayRented){
         return movie.getFrequentRenterPoints(dayRented);
-    }
-
-    public int getPriceCode() {
-        return priceCode;
-    }
-
-    public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
     }
 
     public String getTitle() {
