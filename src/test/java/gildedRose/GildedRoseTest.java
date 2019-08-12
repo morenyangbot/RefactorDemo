@@ -19,7 +19,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(19, item.quality);
+        assertEquals(19, item.getQuality());
     }
 
     @Test
@@ -29,7 +29,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(18, item.quality);
+        assertEquals(18, item.getQuality());
     }
 
     @Test
@@ -39,7 +39,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(0, item.quality);
+        assertEquals(0, item.getQuality());
     }
 
     @Test
@@ -49,7 +49,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(41, item.quality);
+        assertEquals(41, item.getQuality());
     }
 
     @Test
@@ -59,7 +59,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(50, item.quality);
+        assertEquals(50, item.getQuality());
     }
 
     @Test
@@ -69,7 +69,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(50, item.quality);
+        assertEquals(50, item.getQuality());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(50, item.quality);
+        assertEquals(50, item.getQuality());
     }
 
     @Test
@@ -89,7 +89,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(22, item.quality);
+        assertEquals(22, item.getQuality());
     }
 
     @Test
@@ -99,7 +99,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(50, item.quality);
+        assertEquals(50, item.getQuality());
     }
 
     @Test
@@ -109,7 +109,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(23, item.quality);
+        assertEquals(23, item.getQuality());
     }
 
     @Test
@@ -119,7 +119,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(50, item.quality);
+        assertEquals(50, item.getQuality());
     }
 
     @Test
@@ -129,7 +129,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(0, item.quality);
+        assertEquals(0, item.getQuality());
     }
 
     @Test
@@ -139,7 +139,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(80, item.quality);
+        assertEquals(80, item.getQuality());
     }
 
     @Test
@@ -149,6 +149,6 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(80, item.quality);
+        assertEquals(80, item.getQuality());
     }
 }

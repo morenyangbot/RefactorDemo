@@ -3,17 +3,25 @@ package gildedRose;
 public class Item {
 
 
-    public static final int MAX_QUALITY = 50;
-    public String name;
+    private static final int MAX_QUALITY = 50;
+    private String name;
 
-    public int sellIn;
+    private int sellIn;
 
-    public int quality;
+    private int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public int getQuality() {
+        return quality;
     }
 
     @Override
@@ -59,11 +67,11 @@ public class Item {
         }
     }
 
-    private void decreaseSellIn() {
+    public void decreaseSellIn() {
         sellIn -= 1;
     }
 
-    private void safeIncreaseQuality() {
+    public void safeIncreaseQuality() {
         if (quality < MAX_QUALITY) {
             quality = quality + 1;
         }
