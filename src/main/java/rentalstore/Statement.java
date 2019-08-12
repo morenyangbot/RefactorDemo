@@ -1,20 +1,20 @@
 package rentalstore;
 
+import java.util.stream.Collectors;
+
 public abstract class Statement {
     public String statement(Customer customer) {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
-        StringBuilder result = new StringBuilder();
-        result.append(getHeader(customer));
-        for (Rental rental : customer.getRentals()) {
-            double thisAmount = rental.getRentalAmount();
-            frequentRenterPoints += rental.getFrequentRenterPoints();
-            result.append(getRentalItem(rental, thisAmount));
-            totalAmount += thisAmount;
-        }
+        double totalAmount = customer.getTotalAmount();
+        int frequentRenterPoints = customer.getTotalFrequentRenterPoints();
+        return getHeader(customer) +
+                getRentalItemsSting(customer) +
+                getFooter(totalAmount, frequentRenterPoints);
+    }
 
-        result.append(getFooter(totalAmount, frequentRenterPoints));
-        return result.toString();
+    private String getRentalItemsSting(Customer customer) {
+        return customer.getRentals().stream()
+                .map(rental -> getRentalItem(rental, rental.getRentalAmount()))
+                .collect(Collectors.joining());
     }
 
     protected abstract String getFooter(double totalAmount, int frequentRenterPoints);
@@ -22,6 +22,5 @@ public abstract class Statement {
     protected abstract String getRentalItem(Rental rental, double thisAmount);
 
     protected abstract String getHeader(Customer customer);
-
 
 }

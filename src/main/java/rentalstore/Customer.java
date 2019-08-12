@@ -28,6 +28,20 @@ public class Customer {
     }
 
     public String htmlStatement() {
-        return  new HtmlStatement().statement(this);
+        return new HtmlStatement().statement(this);
+    }
+
+    double getTotalAmount() {
+        return getRentals()
+                .stream()
+                .mapToDouble(Rental::getRentalAmount)
+                .sum();
+    }
+
+    int getTotalFrequentRenterPoints() {
+        return getRentals()
+                .stream()
+                .mapToInt(Rental::getFrequentRenterPoints)
+                .sum();
     }
 }
