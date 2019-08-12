@@ -24,6 +24,10 @@ public class Item {
         return quality;
     }
 
+    public void setQuality(int quality) {
+        this.quality = quality;
+    }
+
     @Override
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
@@ -37,18 +41,7 @@ public class Item {
                 new AgedBrie().updateQuality(this);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                decreaseSellIn();
-                safeIncreaseQuality();
-                if (sellIn < 10) {
-                    safeIncreaseQuality();
-                }
-
-                if (sellIn < 5) {
-                    safeIncreaseQuality();
-                }
-                if (sellIn < 0) {
-                    quality = 0;
-                }
+                new BackstagePass().updateQuality(this);
                 break;
             default:
                 decreaseSellIn();
