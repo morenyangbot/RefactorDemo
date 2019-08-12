@@ -7,10 +7,25 @@ public class Movie {
 
     private String title;
     private int priceCode;
+    private MovieType movie;
 
     public Movie(String title, int priceCode) {
         this.title = title;
         this.priceCode = priceCode;
+        switch (priceCode) {
+            case REGULAR:
+                this.movie = new RegularMovie();
+                break;
+            case NEW_RELEASE:
+                this.movie = new NewReleaseMovie();
+                break;
+            case CHILDRENS:
+                this.movie = new ChildrenMovie();
+        }
+    }
+
+    public double getRentalAmount(int dayRented) {
+        return movie.getAmount(dayRented);
     }
 
     public int getPriceCode() {
