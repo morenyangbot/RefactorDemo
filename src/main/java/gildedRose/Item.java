@@ -24,7 +24,7 @@ public class Item {
     public void updateQuality() {
         switch (name) {
             case "Sulfuras, Hand of Ragnaros":
-                return;
+                new Sulfuras().updateQuality(this);
             case "Aged Brie":
                 decreaseSellIn();
                 safeIncreaseQuality();
@@ -55,6 +55,7 @@ public class Item {
                     }
                 }
                 break;
+
         }
     }
 
