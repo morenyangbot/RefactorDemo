@@ -23,9 +23,9 @@ public class Item {
 
     public void updateQuality() {
         if (name.equals("Sulfuras, Hand of Ragnaros")) {
-        } else {
-            sellIn = sellIn - 1;
+            return;
         }
+        sellIn = sellIn - 1;
 
         if (name.equals("Aged Brie")) {
             safeIncreaseQuality();
@@ -35,9 +35,6 @@ public class Item {
             }
         } else {
             if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (name.equals("Sulfuras, Hand of Ragnaros")) {
-                    return;
-                }
                 if (quality <= 0) {
                     return;
                 }
