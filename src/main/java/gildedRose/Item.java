@@ -14,8 +14,8 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
@@ -61,7 +61,7 @@ public class Item {
                         }
                     }
                 } else {
-                    quality = quality - quality;
+                    quality = 0;
                 }
             } else {
                 if (quality < 50) {
