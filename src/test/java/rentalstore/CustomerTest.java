@@ -149,4 +149,23 @@ public class CustomerTest {
                 "<P>You owe<EM>2.0</EM><P>\n" +
                 "On this rental you earned <EM>1</EM> frequent renter points<P>", statement);
     }
+
+    @Test
+    public void testHtmlStatement_givenTwoDented_thenReturnCorrectAmountAndPoints() {
+        Movie childrenMovie = new Movie("Title3", Movie.CHILDRENS);
+        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        int dayRented = 4;
+        Rental childrenRental = new Rental(childrenMovie, dayRented);
+        Rental regularRental = new Rental(regularMovie, dayRented);
+        customer.addRental(childrenRental);
+        customer.addRental(regularRental);
+
+        String statement = customer.htmlStatement();
+
+        assertEquals("<H1>Rental Record for <EM>A</EM></H1><P>\n" +
+                "Title3: 3.0<BR>\n" +
+                "Title1: 5.0<BR>\n" +
+                "<P>You owe<EM>8.0</EM><P>\n" +
+                "On this rental you earned <EM>2</EM> frequent renter points<P>", statement);
+    }
 }
