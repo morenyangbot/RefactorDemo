@@ -29,25 +29,22 @@ public class Item {
 
         if (name.equals("Aged Brie")) {
             safeIncreaseQuality();
-            updateBackstagePassQuality();
             if(sellIn < 0){
                 safeIncreaseQuality();
             }
+        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            safeIncreaseQuality();
+            updateBackstagePassQuality();
+            if (sellIn < 0) {
+                quality = 0;
+            }
         } else {
-            if (!name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                if (quality <= 0) {
-                    return;
-                }
+            if (quality <= 0) {
+                return;
+            }
+            quality = quality - 1;
+            if (sellIn < 0) {
                 quality = quality - 1;
-                if(sellIn < 0) {
-                    quality = quality - 1;
-                }
-            } else {
-                safeIncreaseQuality();
-                updateBackstagePassQuality();
-                if (sellIn < 0) {
-                    quality = 0;
-                }
             }
         }
     }
@@ -60,7 +57,6 @@ public class Item {
     }
 
     private void updateBackstagePassQuality() {
-        if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
             if (sellIn < 10) {
                 safeIncreaseQuality();
             }
@@ -68,6 +64,5 @@ public class Item {
             if (sellIn < 5) {
                 safeIncreaseQuality();
             }
-        }
     }
 }
