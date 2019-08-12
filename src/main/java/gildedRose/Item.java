@@ -22,36 +22,44 @@ public class Item {
     }
 
     public void updateQuality() {
-        if (name.equals("Sulfuras, Hand of Ragnaros")) {
-            return;
-        }
-        sellIn = sellIn - 1;
-
-        if (name.equals("Aged Brie")) {
-            safeIncreaseQuality();
-            if (sellIn < 0) {
+        switch (name) {
+            case "Sulfuras, Hand of Ragnaros":
+                return;
+            case "Aged Brie":
+                decreaseSellIn();
                 safeIncreaseQuality();
-            }
-        } else if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-            safeIncreaseQuality();
-            if (sellIn < 10) {
-                safeIncreaseQuality();
-            }
-
-            if (sellIn < 5) {
-                safeIncreaseQuality();
-            }
-            if (sellIn < 0) {
-                quality = 0;
-            }
-        } else {
-            if (quality > 0) {
-                quality = quality - 1;
                 if (sellIn < 0) {
-                    quality = quality - 1;
+                    safeIncreaseQuality();
                 }
-            }
+                break;
+            case "Backstage passes to a TAFKAL80ETC concert":
+                decreaseSellIn();
+                safeIncreaseQuality();
+                if (sellIn < 10) {
+                    safeIncreaseQuality();
+                }
+
+                if (sellIn < 5) {
+                    safeIncreaseQuality();
+                }
+                if (sellIn < 0) {
+                    quality = 0;
+                }
+                break;
+            default:
+                decreaseSellIn();
+                if (quality > 0) {
+                    quality = quality - 1;
+                    if (sellIn < 0) {
+                        quality = quality - 1;
+                    }
+                }
+                break;
         }
+    }
+
+    private void decreaseSellIn() {
+        sellIn -= 1;
     }
 
     private void safeIncreaseQuality() {
