@@ -106,4 +106,47 @@ public class CustomerTest {
                 "Amount owed is 3.0\n" +
                 "You earned 1 frequent renter points", statement);
     }
+
+    @Test
+    public void testStatement_givenTwoDented_thenReturnCorrectAmountAndPoints() {
+        Movie childrenMovie = new Movie("Title3", Movie.CHILDRENS);
+        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        int dayRented = 4;
+        Rental childrenRental = new Rental(childrenMovie, dayRented);
+        Rental regularRental = new Rental(regularMovie, dayRented);
+        customer.addRental(childrenRental);
+        customer.addRental(regularRental);
+
+        String statement = customer.statement();
+
+        assertEquals("Rental Record for A\n" +
+                "\tTitle3\t3.0\n" +
+                "\tTitle1\t5.0\n" +
+                "Amount owed is 8.0\n" +
+                "You earned 2 frequent renter points", statement);
+    }
+
+    @Test
+    public void testHtmlStatement_givenNoRentals_thenReturnAmount0AndPoint0() {
+        String statement = customer.htmlStatement();
+
+        assertEquals("<H1>Rental Record for <EM>A</EM></H1><P>\n" +
+                "<P>You owe<EM>0.0</EM><P>\n" +
+                "On this rental you earned <EM>0</EM> frequent renter points<P>", statement);
+    }
+
+    @Test
+    public void testHtmlStatement_givenRegularTypeAndDayRented1_thenReturnAmount2AndPoint1() {
+        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        int dayRented = 1;
+        Rental regularRental = new Rental(regularMovie, dayRented);
+        customer.addRental(regularRental);
+
+        String statement = customer.htmlStatement();
+
+        assertEquals("<H1>Rental Record for <EM>A</EM></H1><P>\n" +
+                "Title1: 2.0<BR>\n" +
+                "<P>You owe<EM>2.0</EM><P>\n" +
+                "On this rental you earned <EM>1</EM> frequent renter points<P>", statement);
+    }
 }
