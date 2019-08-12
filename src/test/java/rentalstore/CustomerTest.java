@@ -9,6 +9,15 @@ public class CustomerTest {
     private Customer customer = new Customer("A");
 
     @Test
+    public void testStatement_givenNoRentals_thenReturnAmount0AndPoint0() {
+        String statement = customer.statement();
+
+        assertEquals("Rental Record for A\n" +
+                "Amount owed is 0.0\n" +
+                "You earned 0 frequent renter points", statement);
+    }
+
+    @Test
     public void testStatement_givenRegularTypeAndDayRented1_thenReturnAmount2AndPoint1() {
         Movie regularMovie = new Movie("Title1", Movie.REGULAR);
         int dayRented = 1;
