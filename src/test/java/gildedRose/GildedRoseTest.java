@@ -82,4 +82,54 @@ public class GildedRoseTest {
         assertEquals(50, item.quality);
     }
 
+    @Test
+    public void shouldReturn21_givenBackstageISellInIs10AndQualityIs20() {
+        Item item = new Item(BACKSTAGE_NAME, 10, 20);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(22, item.quality);
+    }
+
+    @Test
+    public void shouldReturn50_givenBackstageISellInIs10AndQualityIs49() {
+        Item item = new Item(BACKSTAGE_NAME, 10, 49);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(50, item.quality);
+    }
+
+    @Test
+    public void shouldReturn22_givenBackstageISellInIs5AndQualityIs20() {
+        Item item = new Item(BACKSTAGE_NAME, 5, 20);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(23, item.quality);
+    }
+
+    @Test
+    public void shouldReturn50_givenBackstageISellInIs5AndQualityIs48() {
+        Item item = new Item(BACKSTAGE_NAME, 5, 48);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(50, item.quality);
+    }
+
+    @Test
+    public void shouldReturn50_givenBackstageISellInIs0AndQualityIs20() {
+        Item item = new Item(BACKSTAGE_NAME, 0, 20);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(0, item.quality);
+    }
+
 }
