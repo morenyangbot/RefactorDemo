@@ -1,14 +1,14 @@
 package gildedRose;
 
 public class Item {
-
-
     private static final int MAX_QUALITY = 50;
-    private String name;
+    private static final int MIN_QUALITY = 0;
 
-    private int sellIn;
+    public String name;
 
-    private int quality;
+    public int sellIn;
+
+    public int quality;
 
     public Item(String name, int sellIn, int quality) {
         this.name = name;
@@ -51,12 +51,14 @@ public class Item {
         }
     }
 
-    public void decreaseQuality() {
-        quality = quality - 1;
-    }
-
     public void decreaseSellIn() {
         sellIn -= 1;
+    }
+
+    public void safeDecreaseQuality() {
+        if (quality > MIN_QUALITY) {
+            quality = quality - 1;
+        }
     }
 
     public void safeIncreaseQuality() {
