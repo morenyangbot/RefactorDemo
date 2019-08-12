@@ -42,5 +42,44 @@ public class GildedRoseTest {
         assertEquals(0, item.quality);
     }
 
+    @Test
+    public void shouldReturn41_givenAgedBrieSellInIs10AndQualityIs40() {
+        Item item = new Item(AGED_BRIE_NAME, 10, 40);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(41, item.quality);
+    }
+
+    @Test
+    public void shouldReturn50_givenAgedBrieSellInIs10AndQualityIs50() {
+        Item item = new Item(AGED_BRIE_NAME, 10, 50);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(50, item.quality);
+    }
+
+    @Test
+    public void shouldReturn50_givenAgedBrieSellInIs0AndQualityIs48() {
+        Item item = new Item(AGED_BRIE_NAME, 0, 48);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(50, item.quality);
+    }
+
+    @Test
+    public void shouldReturn50_givenAgedBrieSellInIs0AndQualityIs49() {
+        Item item = new Item(AGED_BRIE_NAME, 0, 49);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(50, item.quality);
+    }
 
 }
