@@ -1,8 +1,12 @@
 package rentalstore;
 
-public class ChildrenMovie implements MovieType {
+public class ChildrenMovie extends Movie {
+    public ChildrenMovie(String title) {
+        super(title);
+    }
+
     @Override
-    public double getAmount(int dayRented) {
+    public double getRentalAmount(int dayRented) {
         double amount = 1.5;
         if (dayRented > 3) {
             amount += (dayRented - 3) * 1.5;

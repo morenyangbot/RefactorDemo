@@ -19,7 +19,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenRegularTypeAndDayRented1_thenReturnAmount2AndPoint1() {
-        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        Movie regularMovie = new RegularMovie("Title1");
         int dayRented = 1;
         Rental regularRental = new Rental(regularMovie, dayRented);
         customer.addRental(regularRental);
@@ -34,7 +34,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenRegularTypeAndDayRented3_thenReturnAmount3_5AndPoint1() {
-        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        Movie regularMovie = new RegularMovie("Title1");
         int dayRented = 3;
         Rental regularRental = new Rental(regularMovie, dayRented);
         customer.addRental(regularRental);
@@ -49,7 +49,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenNewReleaseTypeAndDayRented1_thenReturnReturnAmount3AndPoint1() {
-        Movie newReleaseMovie = new Movie("Title2", Movie.NEW_RELEASE);
+        Movie newReleaseMovie = new NewReleaseMovie("Title2");
         int dayRented = 1;
         Rental newReleaseRental = new Rental(newReleaseMovie, dayRented);
         customer.addRental(newReleaseRental);
@@ -64,7 +64,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenNewReleaseTypeAndDayRented2_thenReturnReturnAmount6AndPoint2() {
-        Movie newReleaseMovie = new Movie("Title2", Movie.NEW_RELEASE);
+        Movie newReleaseMovie = new NewReleaseMovie("Title2");
         int dayRented = 2;
         Rental newReleaseRental = new Rental(newReleaseMovie, dayRented);
         customer.addRental(newReleaseRental);
@@ -79,7 +79,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenChildrenTypeAndDayRented2_thenReturnReturnAmount1_5AndPoint1() {
-        Movie childrenMovie = new Movie("Title3", Movie.CHILDRENS);
+        Movie childrenMovie = new ChildrenMovie("Title3");
         int dayRented = 2;
         Rental childrenRental = new Rental(childrenMovie, dayRented);
         customer.addRental(childrenRental);
@@ -94,7 +94,7 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenChildrenTypeAndDayRented3_thenReturnReturnAmount3AndPoint1() {
-        Movie childrenMovie = new Movie("Title3", Movie.CHILDRENS);
+        Movie childrenMovie = new ChildrenMovie("Title3");
         int dayRented = 4;
         Rental childrenRental = new Rental(childrenMovie, dayRented);
         customer.addRental(childrenRental);
@@ -109,8 +109,8 @@ public class CustomerTest {
 
     @Test
     public void testStatement_givenTwoDented_thenReturnCorrectAmountAndPoints() {
-        Movie childrenMovie = new Movie("Title3", Movie.CHILDRENS);
-        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        Movie childrenMovie = new ChildrenMovie("Title3");
+        Movie regularMovie = new RegularMovie("Title1");
         int dayRented = 4;
         Rental childrenRental = new Rental(childrenMovie, dayRented);
         Rental regularRental = new Rental(regularMovie, dayRented);
@@ -137,7 +137,7 @@ public class CustomerTest {
 
     @Test
     public void testHtmlStatement_givenRegularTypeAndDayRented1_thenReturnAmount2AndPoint1() {
-        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        Movie regularMovie = new RegularMovie("Title1");
         int dayRented = 1;
         Rental regularRental = new Rental(regularMovie, dayRented);
         customer.addRental(regularRental);
@@ -152,8 +152,8 @@ public class CustomerTest {
 
     @Test
     public void testHtmlStatement_givenTwoDented_thenReturnCorrectAmountAndPoints() {
-        Movie childrenMovie = new Movie("Title3", Movie.CHILDRENS);
-        Movie regularMovie = new Movie("Title1", Movie.REGULAR);
+        Movie childrenMovie = new ChildrenMovie("Title3");
+        Movie regularMovie = new RegularMovie("Title1");
         int dayRented = 4;
         Rental childrenRental = new Rental(childrenMovie, dayRented);
         Rental regularRental = new Rental(regularMovie, dayRented);

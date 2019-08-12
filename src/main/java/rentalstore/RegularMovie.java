@@ -1,9 +1,13 @@
 package rentalstore;
 
-public class RegularMovie implements MovieType {
+public class RegularMovie extends Movie {
+
+    public RegularMovie(String title) {
+        super(title);
+    }
 
     @Override
-    public double getAmount(int dayRented) {
+    public double getRentalAmount(int dayRented) {
         double amount = 2;
         if (dayRented > 2) {
             amount += (dayRented - 2) * 1.5;
