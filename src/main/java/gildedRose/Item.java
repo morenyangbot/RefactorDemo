@@ -10,10 +10,13 @@ public class Item {
 
     public int quality;
 
+    private SellItem sellItem;
+
     public Item(String name, int sellIn, int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
+        this.sellItem = SellItemFactory.getSellItem(name);
     }
 
     public int getSellIn() {
@@ -34,21 +37,7 @@ public class Item {
     }
 
     public void updateQuality() {
-        switch (name) {
-            case "Sulfuras, Hand of Ragnaros":
-                new Sulfuras().updateQuality(this);
-                break;
-            case "Aged Brie":
-                new AgedBrie().updateQuality(this);
-                break;
-            case "Backstage passes to a TAFKAL80ETC concert":
-                new BackstagePass().updateQuality(this);
-                break;
-            default:
-                new NormalSellItem().updateQuality(this);
-                break;
-
-        }
+        sellItem.updateQuality(this);
     }
 
     public void decreaseSellIn() {
