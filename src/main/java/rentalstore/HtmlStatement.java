@@ -8,12 +8,12 @@ public class HtmlStatement extends Statement {
     }
 
     protected String getFooter(double totalAmount, int frequentRenterPoints) {
-        String footer = "<P>You owe<EM>" + String.valueOf(totalAmount) + "</EM><P>\n";
-        footer += "On this rental you earned <EM>" + String.valueOf(frequentRenterPoints) + "</EM> frequent renter points<P>";
+        String footer = "<P>You owe<EM>" + totalAmount + "</EM><P>\n";
+        footer += "On this rental you earned <EM>" + frequentRenterPoints + "</EM> frequent renter points<P>";
         return footer;
     }
 
     protected String getRentalItem(Rental each, double thisAmount) {
-        return each.getMovie().getTitle() + ": " + String.valueOf(thisAmount) + "<BR>\n";
+        return each.getMovie().getTitle() + ": " + thisAmount + "<BR>\n";
     }
 }

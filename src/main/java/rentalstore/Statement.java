@@ -5,18 +5,15 @@ public abstract class Statement {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         StringBuilder result = new StringBuilder();
-        String getHeader = getHeader(customer);
-        result.append(getHeader);
-        for (Rental each : customer.getRentals()) {
-            double thisAmount = each.getRentalAmount();
-            frequentRenterPoints += each.getFrequentRenterPoints();
-
-            result.append(getRentalItem(each, thisAmount));
+        result.append(getHeader(customer));
+        for (Rental rental : customer.getRentals()) {
+            double thisAmount = rental.getRentalAmount();
+            frequentRenterPoints += rental.getFrequentRenterPoints();
+            result.append(getRentalItem(rental, thisAmount));
             totalAmount += thisAmount;
         }
-        String footer = getFooter(totalAmount, frequentRenterPoints);
 
-        result.append(footer);
+        result.append(getFooter(totalAmount, frequentRenterPoints));
         return result.toString();
     }
 
