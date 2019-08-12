@@ -2,6 +2,8 @@ package gildedRose;
 
 public class Item {
 
+
+    public static final int MAX_QUALITY = 50;
     public String name;
 
     public int sellIn;
@@ -32,42 +34,12 @@ public class Item {
                     }
                 }
             } else {
-                if (quality < 50) {
-                    quality = quality + 1;
-
-                    if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                        if (sellIn < 10) {
-                            if (quality < 50) {
-                                quality = quality + 1;
-                            }
-                        }
-
-                        if (sellIn < 5) {
-                            if (quality < 50) {
-                                quality = quality + 1;
-                            }
-                        }
-                    }
-                }
+                safeIncreaseQuality();
+                updateBackstagePassQuality();
             }
         } else {
-            if (quality < 50) {
-                quality = quality + 1;
-
-                if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
-                    if (sellIn < 10) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-
-                    if (sellIn < 5) {
-                        if (quality < 50) {
-                            quality = quality + 1;
-                        }
-                    }
-                }
-            }
+            safeIncreaseQuality();
+            updateBackstagePassQuality();
         }
 
 
@@ -83,9 +55,26 @@ public class Item {
                     quality = 0;
                 }
             } else {
-                if (quality < 50) {
-                    quality = quality + 1;
-                }
+                safeIncreaseQuality();
+            }
+        }
+    }
+
+    private void safeIncreaseQuality() {
+        if (quality < MAX_QUALITY) {
+            quality = quality + 1;
+
+        }
+    }
+
+    private void updateBackstagePassQuality() {
+        if (name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+            if (sellIn < 10) {
+                safeIncreaseQuality();
+            }
+
+            if (sellIn < 5) {
+                safeIncreaseQuality();
             }
         }
     }
