@@ -103,7 +103,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void shouldReturn22_givenBackstageISellInIs5AndQualityIs20() {
+    public void shouldReturn23_givenBackstageISellInIs5AndQualityIs20() {
         Item item = new Item(BACKSTAGE_NAME, 5, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
