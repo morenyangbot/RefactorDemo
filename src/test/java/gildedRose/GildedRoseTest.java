@@ -11,6 +11,7 @@ public class GildedRoseTest {
     private static final String AGED_BRIE_NAME = "Aged Brie";
     private static final String BACKSTAGE_NAME = "Backstage passes to a TAFKAL80ETC concert";
     private static final String SULFURAS_NAME = "Sulfuras, Hand of Ragnaros";
+    private static final String CONJURED = "Conjured";
 
     @Test
     public void shouldReturn19_givenANormalItemSellInIs10AndQualityIs20() {
@@ -23,7 +24,7 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void shouldReturn19_givenANormalItemSellInIs0AndQualityIs20() {
+    public void shouldReturn18_givenANormalItemSellInIs0AndQualityIs20() {
         Item item = new Item(NORMAL_ITEM_NAME, 0, 20);
         GildedRose gildedRose = new GildedRose(new Item[]{item});
 
@@ -150,5 +151,25 @@ public class GildedRoseTest {
         gildedRose.updateQuality();
 
         assertEquals(80, item.getQuality());
+    }
+
+    @Test
+    public void shouldReturn18_givenAConjuredSellInIs10AndQualityIs20() {
+        Item item = new Item(CONJURED, 10, 20);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(19, item.getQuality());
+    }
+
+    @Test
+    public void shouldReturn16_givenAConjuredSellInIs0AndQualityIs20() {
+        Item item = new Item(CONJURED, 0, 20);
+        GildedRose gildedRose = new GildedRose(new Item[]{item});
+
+        gildedRose.updateQuality();
+
+        assertEquals(18, item.getQuality());
     }
 }
