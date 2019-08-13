@@ -160,7 +160,7 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(19, item.getQuality());
+        assertEquals(18, item.getQuality());
     }
 
     @Test
@@ -170,6 +170,6 @@ public class GildedRoseTest {
 
         gildedRose.updateQuality();
 
-        assertEquals(18, item.getQuality());
+        assertEquals(16, item.getQuality());
     }
 }
